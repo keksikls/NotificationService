@@ -1,6 +1,6 @@
 ﻿services:
   notification servicenotificationservice:
-    image: notification servicenotificationservice
+    image: servicenotificationservice
     build:
       context: .
       dockerfile: Notification Service/Dockerfile
