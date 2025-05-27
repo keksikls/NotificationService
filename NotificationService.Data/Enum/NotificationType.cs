@@ -3,6 +3,7 @@
 public enum NotificationType
 {
     Email,
+    sms,
     Telegram,
     Web
 }
