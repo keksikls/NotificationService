@@ -2,5 +2,5 @@
 
 public interface ITelegramSender
 {
-    
+    Task SendAsync(string chatId,string message);
 }

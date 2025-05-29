@@ -1,4 +1,5 @@
 ﻿using NotificationService.Application.Interfaces;
+using NotificationService.Core.Entites;
 using NotificationService.Core.Repositories;
 
 namespace NotificationService.Application.Services;
@@ -9,36 +10,28 @@ public class NotificationService : INotificationService
     private readonly IEmailSender _emailSender;
     private readonly ISmsSender _smsSender;
     private readonly ITelegramSender _telegramSender;
-    private readonly IWebSender _webSender;
 
     public NotificationService(INotificationLogRepo notificationLogRepo,
-        IEmailSender emailSender, ISmsSender smsSender, ITelegramSender telegramSender,
-        IWebSender webSender)
+        IEmailSender emailSender, ISmsSender smsSender, ITelegramSender telegramSender)
     {
         _notificationLogRepo = notificationLogRepo;
         _emailSender = emailSender;
         _smsSender = smsSender;
         _telegramSender = telegramSender;
-        _webSender = webSender;
     }
     
-    public Task SendEmailNotificationAsync(string recipient, string subject, string content)
+    public async Task SendEmailNotificationAsync(string recipient, string subject, string content)
     {
-        throw new NotImplementedException();
+        await _emailSender.SendAsync(recipient,subject,content);
     }
 
-    public Task SendSmsNotificationAsync(string recipient, string message)
+    public async Task SendSmsNotificationAsync(string recipient, string message)
     {
-        throw new NotImplementedException();
+        await _smsSender.SendAsync(recipient,message);
     }
 
-    public Task SendTelegramNotificationAsync(string recipient, string message)
+    public async Task SendTelegramNotificationAsync(string recipient, string message)
     {
-        throw new NotImplementedException();
-    }
-
-    public Task SendWebNotificationAsync(string recipient, string message)
-    {
-        throw new NotImplementedException();
+        await _telegramSender.SendAsync(recipient,message);
     }
 }

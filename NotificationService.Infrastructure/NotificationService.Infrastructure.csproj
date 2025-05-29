@@ -16,10 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Email\" />
-      <Folder Include="Sms\" />
-      <Folder Include="Telegram\" />
-      <Folder Include="Web\" />
+      <ProjectReference Include="..\NotificationService.Application\NotificationService.Application.csproj" />
     </ItemGroup>
 
 </Project>

@@ -2,5 +2,5 @@
 
 public interface ISmsSender
 {
-    
+    Task SendAsync(string recipient,string message);
 }
